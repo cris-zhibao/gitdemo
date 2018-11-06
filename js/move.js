@@ -127,3 +127,29 @@ $(window).load(function(){
 	now =Number(hashal);
 	musicao.play();
 });
+
+
+
+//进入全屏
+function FullScreen() {
+	alert(1);
+    var ele = document.getElementById('my-video');
+    if (ele .requestFullscreen) {
+        ele .requestFullscreen();
+    } else if (ele .mozRequestFullScreen) {
+        ele .mozRequestFullScreen();
+    } else if (ele .webkitRequestFullScreen) {
+        ele .webkitRequestFullScreen();
+    }
+}
+//退出全屏
+function exitFullscreen() {
+    var de = document.getElementById('my-video');
+    if (de.exitFullscreen) {
+        de.exitFullscreen();
+    } else if (de.mozCancelFullScreen) {
+        de.mozCancelFullScreen();
+    } else if (de.webkitCancelFullScreen) {
+        de.webkitCancelFullScreen();
+    }
+}

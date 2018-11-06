@@ -845,3 +845,9 @@ animation:errowb 0.7s infinite;
 	-o-animation:slideInLeft 0.5s 2.3s forwards;
 	animation:slideInLeft 0.5s 2.3s forwards;
 }
+
+
+#my-video{
+	width:280px;
+	height:auto;
+}
