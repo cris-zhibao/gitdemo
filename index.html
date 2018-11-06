@@ -2,255 +2,217 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>无标题文档</title>
-<style>
-	*{ padding:0; margin:0;}
-	body{ background:#000;}
-	canvas{ margin:0 auto; display:block; background:url(img/game_bg_2_hd.jpg);}
-</style>
-<script src="js/common.js"></script>
-<script src="js/fish.js"></script>
-<script src="js/source.js"></script>
-<script src="js/cannon.js"></script>
-<script src="js/bullet.js"></script>
-<script src="js/diefish.js"></script>
-<script src="js/coin.js"></script>
-<script src="js/web.js"></script>
-<script>
-	function rnd(n,m){
-		return parseInt(Math.random()*(m-n)+n);	
-	}
-
-	function d2a(n){
-		return n*Math.PI/180;	
-	}
-	
-	function a2d(n){
-		return n*180/Math.PI;	
-	}
-
-	//保存所有资源
-	var JSON={};
-	
-	
-	
-
-	window.onload=function(){
-		var oC=document.querySelector('canvas');
-		
-		var gd=oC.getContext('2d');
-		
-		loadImage(sArr,function(){
-			
-			//保存炮弹
-			var bulletArr=[];
-			
-			//保存鱼
-			var fishArr=[];
-			
-			//存死鱼
-			var diefishArr=[];
-			
-			//存金币
-			var coinArr=[];
-			
-			//存渔网
-			var webArr=[];
-			
-			
-			
-			//造炮
-			var oCannon=new Cannon(1);
-			
-			var minX=-50;
-			var maxX=oC.width+50;
-			
-			setInterval(function(){
-				//造鱼
-				
-				if(Math.random()<0.05){
-					var oFish=new Fish(rnd(1,6));
-					if(Math.random()>0.5){
-						oFish.x=minX;
-						oFish.rotate=rnd(-45,45);
-					}else{
-						oFish.x=maxX;
-						oFish.rotate=rnd(135,225);	
-					}
-					oFish.y=rnd(100,oC.height-100);
-					
-					fishArr.push(oFish);	
-				}
-				
-				
-				
-				gd.clearRect(0,0,oC.width,oC.height);
-				
-				//画鱼
-				for(var i=0; i<fishArr.length;i++){
-					fishArr[i].draw(gd);	
-				}
-				
-				//画死鱼
-				for(var i=0; i<diefishArr.length;i++){
-					diefishArr[i].draw(gd);	
-				}
-				
-				//画金币
-				for(var i=0; i<coinArr.length;i++){
-					coinArr[i].draw(gd);
-				}
-				
-				//画炮台
-				gd.drawImage(JSON['bottom'],0,0,765,71,10,529,765,71);
-				
-				//画炮弹
-				for(var i=0; i<bulletArr.length;i++){
-					bulletArr[i].draw(gd);	
-				}
-				
-				//画渔网
-				for(var i=0;i<webArr.length;i++){
-					webArr[i].draw(gd);	
-				}
-				
-				//画炮筒
-				oCannon.draw(gd);
-				
-				//检测碰撞是否成功
-				for(var i=0; i<fishArr.length;i++){
-					for(var j=0; j<bulletArr.length;j++){
-						if(fishArr[i].isDie(bulletArr[j].x,bulletArr[j].y)){
-							
-							var b_t=bulletArr[j].type;
-							var f_t=fishArr[i].type;
-							var f_x=fishArr[i].x;
-							var f_y=fishArr[i].y;
-							var f_w=fishArr[i].w;
-							var f_h=fishArr[i].h;
-							var f_r=fishArr[i].rotate;
-							
-							//创建死鱼
-							var dieFish=new Diefish(fishArr[i].type);
-							dieFish.x=f_x;
-							dieFish.y=f_y;
-							dieFish.w=f_w;
-							dieFish.h=f_h;
-							dieFish.rotate=f_r;
-							diefishArr.push(dieFish);
-							
-							//死鱼消失
-							setTimeout(function(){
-								diefishArr.shift();	
-							},300);
-							
-							//炮弹消失
-							bulletArr.splice(j,1);
-							
-							//鱼死
-							fishArr.splice(i,1);
-							
-							//生成金币
-							var oCoin=new Coin(f_t);
-							oCoin.x=f_x;
-							oCoin.y=f_y;
-							coinArr.push(oCoin);
-							
-							var oA=new Audio();
-							oA.src='snd/coin.wav';
-							oA.play();
-							
-							
-							//死鱼消失
-							setTimeout(function(){
-								coinArr.shift();	
-							},1000);
-							
-							//生成渔网
-							var oWeb=new Web(b_t);
-							oWeb.x=f_x;
-							oWeb.y=f_y;
-							
-							webArr.push(oWeb);
-							
-							//渔网消失
-							setTimeout(function(){
-								webArr.shift();	
-							},500);
-							
-								
-						}
-						
-							
-					}
-				}
-				
-				//性能优化
-				for(var i=0; i<fishArr.length;i++){
-					if(fishArr[i].x<minX || fishArr[i].x>maxX || fishArr[i].y<-50 || fishArr[i].y>oC.height+50){
-						fishArr.splice(i,1);
-						i--;
-					}
-				}
-				
-				for(var i=0; i<bulletArr.length;i++){
-					if(bulletArr[i].x<minX || bulletArr[i].x>maxX || bulletArr[i].y<-50 || bulletArr[i].y>oC.height+50){
-						bulletArr.splice(i,1);
-						i--;
-					}
-				}
-				
-				
-			},16);
-			
-			setInterval(function(){
-				console.log(fishArr.length,bulletArr.length);	
-			},500);
-			
-			//发射炮弹
-			oC.onclick=function(ev){
-				var x1=ev.clientX-oC.offsetLeft;
-				var y1=ev.clientY-oC.offsetTop;
-				var x2=oCannon.x;
-				var y2=oCannon.y;
-				
-				var a=y2-y1;
-				var b=x2-x1;
-				
-				var d=Math.atan2(b,a);
-				oCannon.rotate=a2d(-d);
-				oCannon.move();
-				
-				//加声音
-				var oA=new Audio();
-				oA.src='snd/cannon.mp3';
-				oA.play();
-				
-				//造炮弹
-				var oBullet=new Bullet(oCannon.type);
-				oBullet.rotate=oCannon.rotate;
-				
-				bulletArr.push(oBullet);
-				
-			};
-			
-			
-			
-			
-			
-		},function(n,count){
-			//alert(n/count);
-			//console.log(n/count);
-			
-		});
-		
-		
-			
-	};
-</script>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<link type="text/css" rel="stylesheet" href="css/animate.css">
+<title>徐文杰生日party邀请函</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<script src="js/jquery.js"></script>
+<script src="js/jquery.event.move.js"></script>
+<script src="js/jquery.event.swipe.js"></script>
+<script src="js/jquery.transit.min.js"></script>
 </head>
 
 <body>
-	<canvas width="800" height="600"></canvas>
+<div id="loading" class="loading">
+	页面正在疯狂加载中...
+</div>
+<div id="pages">
+	<div class="page active">
+		<div class="pageImg pageImg01"></div>
+
+		<div class="pagecontent">
+			<div class="pagePeople"><a href="#"><img src="images/2.jpg"></a></div>
+			<div class="pageText01">
+				<h2 class="mewhy" style="text-align:center; color:darkolivegreen">徐文杰<br />生日宴会邀请函</h2>
+			</div>
+			<div class="errow_bottomBg"></div>
+		</div>
+	</div>	
+
+	<div class="page">
+		<div class="pageImg pageImg04"></div>
+
+		<div class="pagecontent">
+			<div class="pageText04">
+				<h2 class="mewhyfour">我们的驴哥</h2>
+				<p class="mywhy_p_four">在经过27载漫长的煎熬与等待，我们终于迎来了驴哥的第28岁生日！</p>
+			</div>
+            <div class="mini_img">
+            	<a href="#"><img src="images/4.jpg"/></a>
+            </div>
+			<div class="errow_bottomBg"></div>
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="pageImg pageImg05"></div>
+
+		<div class="pagecontent">
+			
+			<div class="pageText05">
+				<h2 class="mewhyfive">驴哥风采</h2>
+				<p class="mewhy_p_five">看当今驴哥，早已褪去年少时的天真与无邪，取而代之的是现在的潇洒与干练！</p>
+			</div>
+			<div class="picList">
+				<ul class="points">
+					<li class="point clearfix">
+						
+						<div class="pointInfo">
+							<a href="#"><img src="images/1.jpg"></a>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+			<div class="errow_bottomBg"></div>
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="pageImg pageImg06"></div>
+
+		<div class="pagecontent">
+			
+			<div class="pageText06">
+				<h2 class="mewhysix">驴哥的身影</h2>
+				<p class="mewhy_p_six">不论在何方，驴哥的身影永远都是那样动人；不论在何时，驴哥的风采永远都是那样有诗意。</p>
+			</div>
+            <div class="picList01">
+				<ul class="points01">
+					<li class="point01 clearfix">
+						
+						<div class="pointInfo01">
+							<a href="#"><img src="images/8.jpg"></a>
+						</div>
+					</li>
+                    <li class="point01 clearfix">
+						
+						<div class="pointInfo01">
+							<a href="#"><img src="images/3.jpg"></a>
+						</div>
+					</li>
+                    <li class="point01 clearfix">
+						
+						<div class="pointInfo01">
+							<a href="#"><img src="images/6.jpg"></a>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+			<div class="errow_bottomBg"></div>
+		</div>
+	</div>
+
+	
+    
+ 
+    <div class="page">
+		<div class="pageImg pageImg10"></div>
+
+		<div class="pagecontent">
+			
+			<div class="pageText10">
+				<h2 class="mewhyTen">徐文杰生日宴</h2>
+            </div>
+			<div class="pageText10_list">
+            	<ul class="pageText10_ul">
+                	<li><a href="#"><span>尊敬的领导，各位亲朋好友，兄弟姐妹们，在此，我仅代表徐文杰同志诚挚邀请大家能够在2018年11月10日的18时18分来参加徐文杰28岁生日晚宴。</span></a></li>
+					<li><a href="#">
+						<span>时间：2018年/11月/10日 18:18 </span><br />
+						<span>地点：北京市昌平区沙河镇南一村小区 </span><br />
+						<span>活动名称：驴哥生日party </span>
+					</a></li>
+                    <li><a href="#"><span>活动内容：饮食类：自动烧烤、涮锅、黑暗料理等；娱乐类：LOL、吃鸡、王者、狼人杀、扎金花、打麻将等；室外活动：租赁轰趴馆、台球、桌游、KTV、五连坐等</span></a></li>
+                </ul>
+            </div>
+			<div class="errow_bottomBg"></div>
+		</div>
+	</div>
+    
+    <div class="page">
+		<div class="pageImg pageImg07"></div>
+
+		<div class="pagecontent">
+			
+			<div class="pageText07">
+				<p class="mewhy_p_seven">再来一张帅照！</p>
+			</div>
+			<div class="textList">
+				<ul class="textUl">
+					<li class="textLi">
+						<a href="#"><img src="images/img01.jpg"/>
+							
+						</a>
+					</li>
+					
+				</ul>
+			</div>
+			<div class="errow_bottomBg"></div>
+		</div>
+	</div>
+
+    <div class="page">
+		<div class="pageImg pageImg12">
+        	<div class="flow01"></div>
+            <div class="flow02"></div>
+            <div class="flow03"></div>
+            <div class="flow04"></div>
+        </div>
+
+		<div class="pagecontent">
+			
+			<div class="pageText12">
+				<h2 class="mewhyTwewu">和我们一起<br/>来参加驴哥生日宴！</h2>
+                
+            </div>
+			<div class="TwewuList">
+				<a href="#" class="addBtn">点击加入</a>
+				
+			</div>
+			<div class="errow_bottomBg"></div>
+		</div>
+	</div>
+
+	<div class="musicbtn"></div>
+    <audio class="musicaudio"  src="a.mp3" loop autoplay></audio>
+</div>
+
+<script>
+//适应分辨率函数
+function fnScale(){
+	ws = $(window).width()/320.0;
+	hs = $(window).height()/548.0;
+	if( ws - hs > 1 ) ws = hs;
+
+	$('.pageImg').each(function() {
+	    $(this).css( { scale : hs < ws ? ws : hs } );
+	});
+
+	//定页面内容区域的大小，高或者宽比例缩小时都会影响宽的大小
+	$('.pagecontent').each(function() {
+	   	$(this).css( { scale : hs > ws ? ws : hs });
+	});
+
+	$('.navBottom').each(function(){
+		var n=hs>ws?ws:hs;
+		$(this).css({ 'width':$(document).width()});
+		$('.tophb').css({ 'width':320*ws/n+'px'});
+		$('.bg_hb').css({ 'width':320*ws/n+'px'});
+		$('.no5_hb').css({ 'width':320*ws/n+'px'});
+		$('.tophb').css({ 'margin-left':-(320*ws/n-320)/2+'px'});
+		$('.bg_hb').css({ 'margin-left':-(320*ws/n-320)/2+'px'});
+		$('.no5_hb').css({ 'margin-left':-(320*ws/n-320)/2+'px'});
+		$('.no4_bg1').css({ 'margin-left':-(320*ws/n-320)/2+'px'});
+	});
+}
+
+
+$('.addBtn').click(function(){
+	confirm('报名方式：微信预约。 编辑姓名、电话、人数，发送到 徐文杰 微信上！ 期待你的加入！报名截止日期：2018.11.9 24:00')
+});
+
+</script>
+<script src="js/move.js"></script>
 </body>
 </html>

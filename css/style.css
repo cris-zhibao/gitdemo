@@ -1,0 +1,847 @@
+@charset "utf-8";
+/* 通用样式 */
+*{ -webkit-tap-highlight-color: rgba(0,0,0,0);}
+html{-webkit-text-size-adjust:none; } 
+body, div, ol, ul, h1, h2, h3, h4, h5, h6, p, th, td, dl, dd, form, iframe, input, textarea, select, label, article, aside, footer, header, menu, nav, section, time, audio, video {margin:0; padding:0;}
+article, aside, footer, header, hgroup, nav, section, audio, canvas, video {display:block;}
+body { font-family: Microsoft YaHei, Helvetica Neue, Helvetica, STHeiTi, sans-serif; font-size:100%; background:#f0f0f0;}
+textarea {resize:none;}
+iframe, img {border:0 none;}
+ul, ol {list-style:none outside none;}
+input, select, textarea {outline:0 none;}
+.clear{ clear:both;}
+.clearfix:before, .clearfix:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+}
+.clearfix:after {
+    clear: both;
+}
+a{ text-decoration: none; color:#333;}
+input,input:focus,input:active{ -webkit-appearance:none; user-select: text; border:none; list-style:none;}
+.fl{ float:left;}
+.fr{ float:right;}
+
+/*自定义样式*/
+body{ background:#fff; font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;}
+.loading{ width:100%; height:100%; background:#f4954f; position:relative;}
+#pages{ position:absolute; left:0%; top:0%; width:100%; height:100%; background:#fff; overflow:hidden;}
+.page{ position:absolute; width:100%; height:100%; left:0%; top:0%; background:#fff; overflow:hidden; display:none;}
+.pageImg{ position:absolute; width:320px; height:548px; left:50%; top:50%; margin:-274px 0 0 -160px;}
+.pagecontent{ /*overflow:hidden;*/ position:absolute; width:320px; height:548px; left:50%; top:50%; margin:-274px 0 0 -160px;}
+.errow_bottomBg{ width:30px; height:12px; left:145px; bottom:55px; position:absolute; background:url(../images/errowBg.png) no-repeat; background-size:100% auto;
+animation:errowb 0.7s infinite;
+-webkit-animation:errowb 0.7s infinite ;
+-moz-animation:errowb 0.7s infinite;
+-o-animation:errowb 0.7s infinite;
+-ms-animation:errowb 0.7s infinite;
+}
+
+.navBottom{ height:40px; position:absolute; bottom:0; left:0; background:rgba(0,0,0,.6);z-index:2000}
+.navBottom a{ width:20%; display:inline-block; height:40px; float:left; text-align:center;}
+.navBottom a.backClick{ background:url(../images/bgck_bg.png) no-repeat center center; background-size:auto 50%;}
+.navBottom a.homeClick{ background:url(../images/homeBg.png) no-repeat center center; background-size:auto 50%;}
+.navBottom a.columnClick{ background:url(../images/column_bg.png) no-repeat center center; background-size:auto 50%; }
+.navBottom a.myClick{ background:url(../images/my_bg.png) no-repeat center center; background-size:auto 50%;}
+.navBottom a.focusClick{ background:url(../images/focus_bg.png) no-repeat center center; background-size:auto 50%;}
+.pageLine{ position:absolute; top:0; left:0; width:100%; height:100%;}
+
+
+/*音乐*/
+.musicbtn{height:28px;width:28px;position:absolute; bottom:50px;right:10px; background:rgba(255,255,255,.2) url(../images/musicbtn.png) no-repeat center 0px;background-size:100% auto; z-index:888; border:1px solid #fff; border-radius:50%;}
+
+.mp3{ width:60px; height:60px; background:url(../images/mp3Bg.png) no-repeat left center; background-size:50% auto; position:absolute; bottom:40px; right:10px; z-index:2000;}
+.mp3Click{
+	-webkit-animation:rotate 5s 0  linear infinite forwards;
+	-moz-animation:rotate 5s 0  linear infinite forwards;
+	-ms-animation:rotate 5s 0  linear infinite forwards;
+	-o-animation:rotate 5s 0  linear infinite forwards;
+	animation:rotate 5s 0  linear infinite forwards;
+}
+
+/*mp3动画*/
+@-webkit-keyframes rotate{
+	0%{
+		-webkit-transform:rotate(0deg);
+		-ms-transform:rotate(0deg);
+		transform:rotate(0deg);
+	}
+	100%{
+		-webkit-transform:rotate(360deg);
+		-ms-transform:rotate(360deg);
+		transform:rotate(360deg);
+	}
+}
+@keyframes{
+	0%{
+		-webkit-transform:rotate(0deg);
+		-ms-transform:rotate(0deg);
+		transform:rotate(0deg);
+	}
+	100%{
+		-webkit-transform:rotate(360deg);
+		-ms-transform:rotate(360deg);
+		transform:rotate(360deg);
+	}
+}
+
+/*第一屏内容*/
+.pageImg01{ background:url(../images/7.jpg) no-repeat; background-size:100% 100%; opacity: 0.3;}
+.pageLine01{ background:url(../images/bgLine01.png) no-repeat; background-size:100% auto; height:0px;}
+.pageText01{ position:absolute; top:310px; left:45px; opacity: 0;}
+.pageText01 h2.mewhy{ font-size:34px; color:#fff;}
+.pageText01 p.mewhy_p{ font-size: 0.875em; color:#fff;}
+.pagePeople{ width:187px; height:187px;border:7px solid rgba(255,255,255,.3); border-radius:50%; position:absolute; left:60px; top:95px; opacity: 0;}
+.pagePeople a{ background:#FFF; display:block;border-radius:50%; width:187px; height:187px; }
+.pagePeople img{ width:187px; height:187px; border-radius:50%;}
+/*第一屏动画*/
+.active .pageLine01{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+
+.active .pagePeople{
+	-webkit-animation: dance 1 1.5s 1s linear,opa 1 0.5s 0.6s linear forwards;
+	-o-animation: dance 1 1.5s 1s linear,opa 1 0.5s 0.6s linear forwards;
+	-moz-animation: dance 1 1.5s 1s linear,opa 1 0.5s 0.6s linear forwards;
+	-ms-animation: dance 1 1.5s 1s linear,opa 1 0.5s 0.6s linear forwards;
+	animation: dance 1 1.5s 1s linear,opa 1 0.5s 0.6s linear forwards;
+}
+.active .pageText01{
+	-webkit-animation:fadeInRight 0.5s 0.8s forwards;
+	-moz-animation:fadeInRight 0.5s 0.8s forwards;
+	-ms-animation:fadeInRight 0.5s 0.8s forwards;
+	-o-animation:fadeInRight 0.5s 0.8s forwards;
+	animation:fadeInRight 0.5s 0.8s forwards;
+}
+
+/*第二屏内容*/
+.pageImg02{ background:url(../images/bg_02.jpg) no-repeat; background-size:100% auto;}
+.pageLine02{ background:url(../images/bgLine02.png) no-repeat; background-size:100% auto; height:0px;}
+.pageText02{ position:absolute; top:50px; width:320px; text-align:center; opacity:0;}
+.pageText02 h2.mewhytwo{ font-size:34px; color:#ffffff;}
+.pageText02 p.meywh_p_two{ font-size:0.875em; color:#ffffff;}
+.pageList{}
+.pageList ul li{position:absolute; width:108px; height:108px; border:2px solid #ee91b2; border-radius:50%;opacity:0;}
+.pageList ul li:nth-child(1){ left:105px; top:315px;}
+.pageList ul li:nth-child(2){ right:20px; top:230px;}
+.pageList ul li:nth-child(3){ left:20px; top:230px;}
+.pageList ul li:nth-child(4){ left:105px; top:145px;}
+.pageList ul li a{ display:inline-block; width:85px; height:85px; border:5px solid #fff; border-radius:50%; background:#f05656;  position:absolute; top:7px; left:7px; font-size:0.875em; color:#FFF; line-height:85px; text-align:center; box-shadow:1px 1px 5px #dd7c9e;}
+.pageList ul li img{ width:65px; height:65px; border-radius:50%;}
+.pageList ul li span{ opacity:0;}
+/*第二屏动画*/
+.active .pageLine02{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+.active .pageText02{
+	-webkit-animation:bounceInLeft 0.5s 0.5s forwards;
+	-moz-animation:bounceInLeft 0.5s 0.5s forwards;
+	-ms-animation:bounceInLeft 0.5s 0.5s forwards;
+	-o-animation:bounceInLeft 0.5s 0.5s forwards;
+	animation:bounceInLeft 0.5s 0.5s forwards;
+}
+.active .pageList ul li:nth-child(1){
+	-webkit-animation:enterDownBounce 1s 0.8s forwards;
+	-moz-animation:enterDownBounce 1s 0.8s forwards;
+	-ms-animation:enterDownBounce 1s 0.8s forwards;
+	-o-animation:enterDownBounce 1s 0.8s forwards;
+	animation:enterDownBounce 1s 0.8s forwards;
+}
+.active .pageList ul li:nth-child(1) span{
+	-webkit-animation:fadeInRight 0.5s 1s forwards;
+	-moz-animation:fadeInRight 0.5s 1s forwards;
+	-ms-animation:fadeInRight 0.5s 1s forwards;
+	-o-animation:fadeInRight 0.5s 1s forwards;
+	animation:fadeInRight 0.5s 1s forwards;
+}
+.active .pageList ul li:nth-child(2){
+	-webkit-animation:enterDownBounce 1s 1.2s forwards;
+	-moz-animation:enterDownBounce 1s 1.2s forwards;
+	-ms-animation:enterDownBounce 1s 1.2s forwards;
+	-o-animation:enterDownBounce 1s 1.2s forwards;
+	animation:enterDownBounce 1s 1.2s forwards;
+}
+.active .pageList ul li:nth-child(2) span{
+	-webkit-animation:fadeInRight 0.5s 1.2s forwards;
+	-moz-animation:fadeInRight 0.5s 1.2s forwards;
+	-ms-animation:fadeInRight 0.5s 1.2s forwards;
+	-o-animation:fadeInRight 0.5s 1.2s forwards;
+	animation:fadeInRight 0.5s 1.2s forwards;
+}
+.active .pageList ul li:nth-child(3){
+	-webkit-animation:enterDownBounce 1s 1.6s forwards;
+	-moz-animation:enterDownBounce 1s 1.6s forwards;
+	-ms-animation:enterDownBounce 1s 1.6s forwards;
+	-o-animation:enterDownBounce 1s 1.6s forwards;
+	animation:enterDownBounce 1s 1.6s forwards;
+}
+.active .pageList ul li:nth-child(3) span{
+	-webkit-animation:fadeInRight 1s 1.4s forwards;
+	-moz-animation:fadeInRight 1s 1.4s forwards;
+	-ms-animation:fadeInRight 1s 1.4s forwards;
+	-o-animation:fadeInRight 1s 1.4s forwards;
+	animation:fadeInRight 1s 1.4s forwards;
+}
+.active .pageList ul li:nth-child(4){
+	-webkit-animation:enterDownBounce 1s 2s forwards;
+	-moz-animation:enterDownBounce 1s 2s forwards;
+	-ms-animation:enterDownBounce 1s 2s forwards;
+	-o-animation:enterDownBounce 1s 2s forwards;
+	animation:enterDownBounce 1s 2s forwards;
+}
+.active .pageList ul li:nth-child(4) span{
+	-webkit-animation:fadeInRight 0.5s 1.4s forwards;
+	-moz-animation:fadeInRight 0.5s 1.4s forwards;
+	-ms-animation:fadeInRight 0.5s 1.4s forwards;
+	-o-animation:fadeInRight 0.5s 1.4s forwards;
+	animation:fadeInRight 0.5s 1.4s forwards;
+}
+
+/*第三屏内容*/
+.pageImg03{ background:url(../images/bg_03.jpg) no-repeat; background-size:100% auto;}
+.pageLine03{ background:url(../images/bgLine03.png) no-repeat; background-size:100% auto; height:0px;}
+.pageText03{ position:absolute; top:25px; right:40px; width:40px; opacity:0;}
+.pageText03 h2.mewhythree{ font-size:34px; color:#fff;}
+.pageText03 p.mewhy_p_three{ font-size:0.875em; color:#5a4a3e; margin-top:10px;}
+.page03_list{}
+.page03_list ul li{ color:#5a4a3e; font-size:1.125em; position:absolute; text-align:center;}
+.page03_list ul li:nth-child(1){ position:absolute; top:35px; left:25px;}
+.page03_list ul li:nth-child(2){ position:absolute; top:140px; left:25px;}
+.page03_list ul li:nth-child(3){ position:absolute; top:245px; left:25px;}
+.page03_list ul li:nth-child(4){ position:absolute; top:350px; left:25px;}
+.page03_list ul li a{ display:block; opacity:0; width:100px; height:100px; float:left; background:url(../images/peo_bg.png) no-repeat; background-size:100% auto;}
+.page03_list ul li span{ opacity:0; color:#FFF; float:left; display:block; line-height:100px; margin-left:5px;}
+.page03_list ul li img{width:35px; height:38px; margin-top:30px;}
+.page03_list ul li:nth-child(1) a{ }
+.page03_list ul li:nth-child(1) img{}
+.page03_list ul li:nth-child(2) a{ }
+.page03_list ul li:nth-child(2) img{}
+.page03_list ul li:nth-child(3) a{ }
+.page03_list ul li:nth-child(3) img{}
+/*第三屏动画*/
+.active .pageLine03{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+.active .pageText03{
+	-webkit-animation:fadeInRight 0.5s 0.5s forwards;
+	-moz-animation:fadeInRight 0.5s 0.5s forwards;
+	-ms-animation:fadeInRight 0.5s 0.5s forwards;
+	-o-animation:fadeInRight 0.5s 0.5s forwards;
+	animation:fadeInRight 0.5s 0.5s forwards;
+}
+.active .page03_list ul li:nth-child(1) a{
+	-webkit-animation:bounceIn 0.5s 0.8s forwards;
+	-moz-animation:bounceIn 0.5s 0.8s forwards;
+	-ms-animation:bounceIn 0.5s 0.8s forwards;
+	-o-animation:bounceIn 0.5s 0.8s forwards;
+	animation:bounceIn 0.5s 0.8s forwards;
+}
+.active .page03_list ul li:nth-child(1) span{
+	-webkit-animation:fadeInLeft 0.5s 1s forwards;
+	-moz-animation:fadeInLeft 0.5s 1s forwards;
+	-ms-animation:fadeInLeft 0.5s 1s forwards;
+	-o-animation:fadeInLeft 0.5s 1s forwards;
+	animation:fadeInLeft 0.5s 1s forwards;
+}
+.active .page03_list ul li:nth-child(2) a{
+	-webkit-animation:bounceIn 0.5s 1s forwards;
+	-moz-animation:bounceIn 0.5s 1s forwards;
+	-ms-animation:bounceIn 0.5s 1s forwards;
+	-o-animation:bounceIn 0.5s 1s forwards;
+	animation:bounceIn 0.5s 1s forwards;
+}
+.active .page03_list ul li:nth-child(2) span{
+	-webkit-animation:fadeInRight 0.5s 1.2s forwards;
+	-moz-animation:fadeInRight 0.5s 1.2s forwards;
+	-ms-animation:fadeInRight 0.5s 1.2s forwards;
+	-o-animation:fadeInRight 0.5s 1.2s forwards;
+	animation:fadeInRight 0.5s 1.2s forwards;
+}
+.active .page03_list ul li:nth-child(3) a{
+	-webkit-animation:bounceIn 0.5s 1.2s forwards;
+	-moz-animation:bounceIn 0.5s 1.2s forwards;
+	-ms-animation:bounceIn 0.5s 1.2s forwards;
+	-o-animation:bounceIn 0.5s 1.2s forwards;
+	animation:bounceIn 0.5s 1.2s forwards;
+}
+.active .page03_list ul li:nth-child(3) span{
+	-webkit-animation:fadeInRight 0.5s 1.5s forwards;
+	-moz-animation:fadeInRight 0.5s 1.5s forwards;
+	-ms-animation:fadeInRight 0.5s 1.5s forwards;
+	-o-animation:fadeInRight 0.5s 1.5s forwards;
+	animation:fadeInRight 0.5s 1.5s forwards;
+}
+.active .page03_list ul li:nth-child(4) a{
+	-webkit-animation:bounceIn 0.5s 1.5s forwards;
+	-moz-animation:bounceIn 0.5s 1.5s forwards;
+	-ms-animation:bounceIn 0.5s 1.5s forwards;
+	-o-animation:bounceIn 0.5s 1.5s forwards;
+	animation:bounceIn 0.5s 1.5s forwards;
+}
+.active .page03_list ul li:nth-child(4) span{
+	-webkit-animation:fadeInRight 0.5s 1.4s forwards;
+	-moz-animation:fadeInRight 0.5s 1.4s forwards;
+	-ms-animation:fadeInRight 0.5s 1.4s forwards;
+	-o-animation:fadeInRight 0.5s 1.4s forwards;
+	animation:fadeInRight 0.5s 1.4s forwards;
+}
+
+
+/*第四屏内容*/
+.pageImg04{ background:url(../images/bg_04.jpg) no-repeat; background-size:100% auto;}
+.pageLine04{ background:url(../images/bgLine04.png) no-repeat; background-size:100% auto; height:0;}
+.pageText04{position:absolute; left:20px; top:35px; opacity:0;}
+.pageText04 h2.mewhyfour{ color:#ffffff; font-size:38px;}
+.pageText04 p.mywhy_p_four{ color:#ffffff; font-size:0.875em; margin-top:5px;}
+.mini_img{position:absolute; left:10px; top:135px; opacity:0;border:5px solid rgba(255,255,255,.5); border-radius:50%; width:292px; height:292px;}
+.mini_img img{background-size:100% auto; width:292px; height:292px; border-radius:50%;  }
+/*第四屏动画*/
+.active .pageLine04{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+.active .pageText04{
+	-webkit-animation:fadeInLeft 0.5s 0.8s forwards;
+	-moz-animation:fadeInLeft 0.5s 0.8s forwards;
+	-ms-animation:fadeInLeft 0.5s 0.8s forwards;
+	-o-animation:fadeInLeft 0.5s 0.8s forwards;
+	animation:fadeInLeft 0.5s 0.8s forwards;
+}
+.active .mini_img{
+	-webkit-animation:enterDownBounce 1.5s 1.2s forwards;
+	-moz-animation:enterDownBounce 1.5s 1.2s forwards;
+	-ms-animation:enterDownBounce 1.5s 1.2s forwards;
+	-o-animation:enterDownBounce 1.5s 1.2s forwards;
+	animation:enterDownBounce 1.5s 1.2s forwards;	
+}
+
+/*第五屏内容*/
+.pageImg05{ background:url(../images/bg_05.jpg) no-repeat; background-size:100% auto;}
+.pageLine05{ background:url(../images/bgLine05.png) no-repeat; background-size:100% auto; height:0;}
+.pageText05{ position:absolute; left:15px; right:15px; top:45px; opacity:0;}
+.pageText05 h2.mewhyfive{ color:#fff; font-size:38px;}
+.pageText05 p.mewhy_p_five{ color:#fff; font-size:0.875em; margin-top:5px;}
+.pointInfo{}
+.picList{}
+.points{ margin-left:30px; margin-top:174px;}
+.point{ margin-top:10px; opacity:0;}
+.top_dot{ width:6px; height:6px; border-radius:50%; background:#fff; display:inline-block; margin-top:64px; float:left;}
+.pointInfo a{ display:inline-block; }
+.pointInfo img{ width:256px; height:262px; border:5px solid rgba(0,0,0,.3) }
+/*第五屏动画*/
+.active .pageLine05{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+.active .pageText05{
+	-webkit-animation:fadeInRight 0.5s 0.8s forwards;
+	-moz-animation:fadeInRight 0.5s 0.8s forwards;
+	-ms-animation:fadeInRight 0.5s 0.8s forwards;
+	-o-animation:fadeInRight 0.5s 0.8s forwards;
+	animation:fadeInRight 0.5s 0.8s forwards;
+}
+.active .points li:nth-child(1){
+	-webkit-animation:animateScaleBig 0.5s 1s forwards;
+	-moz-animation:animateScaleBig 0.5s 1s forwards;
+	-ms-animation:animateScaleBig 0.5s 1s forwards;
+	-o-animation:animateScaleBig 0.5s 1s forwards;
+	animation:animateScaleBig 0.5s 1s forwards;
+}
+.active .points li:nth-child(2){
+	-webkit-animation:animateScaleBig 0.5s 1.2s forwards;
+	-moz-animation:animateScaleBig 0.5s 1.2s forwards;
+	-ms-animation:animateScaleBig 0.5s 1.2s forwards;
+	-o-animation:animateScaleBig 0.5s 1.2s forwards;
+	animation:animateScaleBig 0.5s 1.2s forwards;
+}
+
+/*第六屏内容*/
+.pageImg06{ background:url(../images/bg_06.jpg) no-repeat; background-size:100% auto;}
+.pageLine06{ background:url(../images/bgLine06.png) no-repeat; background-size:100% auto; height:0;}
+.pageText06{position:absolute;  left:15px; right:15px; top:45px; opacity:0;}
+.pageText06 h2.mewhysix{ color:#fff; font-size:38px;}
+.pageText06 p.mewhy_p_six{ color:#fff; font-size:0.875em; margin-top:5px;}
+.pointInfo01{}
+.picList01{}
+
+
+.points01 li{ position:absolute; margin-top:10px;opacity:0; }
+.points01 li:nth-child(1) img{ width:253px; height:110px; border:5px solid rgba(0,0,0,.2); top:164px;  left:20px; position:absolute;}
+.points01 li:nth-child(2) img{ width:120px; height:110px; border:5px solid rgba(0,0,0,.2); top:290px;  left:20px;  position:absolute;}
+.points01 li:nth-child(3) img{ width:120px; height:110px; border:5px solid rgba(0,0,0,.2); top:290px; position:absolute; left:153px;}
+/*第六屏动画*/
+.active .pageLine06{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+.active .pageText06{
+	-webkit-animation:bounceIn 0.5s 0.8s forwards;
+	-moz-animation:bounceIn 0.5s 0.8s forwards;
+	-ms-animation:bounceIn 0.5s 0.8s forwards;
+	-o-animation:bounceIn 0.5s 0.8s forwards;
+	animation:bounceIn 0.5s 0.8s forwards;
+}
+.active .points01 li:nth-child(1){
+	-webkit-animation:animateScaleBig 0.5s 1s forwards;
+	-moz-animation:animateScaleBig 0.5s 1s forwards;
+	-ms-animation:animateScaleBig 0.5s 1s forwards;
+	-o-animation:animateScaleBig 0.5s 1s forwards;
+	animation:animateScaleBig 0.5s 1s forwards;
+}
+.active .points01 li:nth-child(2){
+	-webkit-animation:animateScaleBig 0.5s 1.4s forwards;
+	-moz-animation:animateScaleBig 0.5s 1.4s forwards;
+	-ms-animation:animateScaleBig 0.5s 1.4s forwards;
+	-o-animation:animateScaleBig 0.5s 1.4s forwards;
+	animation:animateScaleBig 0.5s 1.4s forwards;
+}
+.active .points01 li:nth-child(3){
+	-webkit-animation:animateScaleBig 0.5s 1.8s forwards;
+	-moz-animation:animateScaleBig 0.5s 1.8s forwards;
+	-ms-animation:animateScaleBig 0.5s 1.8s forwards;
+	-o-animation:animateScaleBig 0.5s 1.8s forwards;
+	animation:animateScaleBig 0.5s 1.8s forwards;
+}
+
+/*第七屏内容*/
+.pageImg07{ background:#f886a8; background-size:100% auto;}
+.pageLine07{ background:url(../images/bgLine07.png) no-repeat; background-size:100% auto; height:0;}
+.pageText07{ position:absolute; top:25px; opacity:0; left:20px;}
+.pageText07 h2.mewhyseven{ font-size:38px; color:#fff;}
+.pageText07 p.mewhy_p_seven{ font-size:0.875em; color:#fff;}
+.textList{}
+.textUl{margin-top:60px; margin-left:17px;}
+.textLi{opacity:0;}
+.textUl li img{width:285px; height:394px;box-shadow:1px 1px 5px #414141;}
+
+/*第七屏动画*/
+.active .pageLine07{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+.active .pageText07{
+	-webkit-animation:bounceInLeft 0.5s 0.5s forwards;
+	-moz-animation:bounceInLeft 0.5s 0.5s forwards;
+	-ms-animation:bounceInLeft 0.5s 0.5s forwards;
+	-o-animation:bounceInLeft 0.5s 0.5s forwards;
+	animation:bounceInLeft 0.5s 0.5s forwards;
+}
+.active .textUl li:nth-child(1){
+	-webkit-animation:animateScaleBig 0.5s 1s forwards;
+	-moz-animation:animateScaleBig 0.5s 1s forwards;
+	-ms-animation:animateScaleBig 0.5s 1s forwards;
+	-o-animation:animateScaleBig 0.5s 1s forwards;
+	animation:animateScaleBig 0.5s 1s forwards;
+}
+.active .textUl li:nth-child(2){
+	-webkit-animation:animateScaleBig 0.5s 1.2s forwards;
+	-moz-animation:animateScaleBig 0.5s 1.2s forwards;
+	-ms-animation:animateScaleBig 0.5s 1.2s forwards;
+	-o-animation:animateScaleBig 0.5s 1.2s forwards;
+	animation:animateScaleBig 0.5s 1.2s forwards;
+}
+
+
+/*第八屏*/
+.pageImg08{ background:#51cf92; background-size:100% auto;}
+.pageLine08{ background:url(../images/bgLine08.png) no-repeat; background-size:100% auto; height:0;}
+.pageText08{ position:absolute; top:45px; opacity:0;}
+.pageText08 h2.mewhyeight{ font-size:38px; color:#fff; width:320px; text-align:center;}
+.pageText08 p.mewhy_p_eight{ margin-top:3px; width:200px; font-size:0.875em; color:#fff;}
+
+.textUl01{}
+.textLi01{  opacity:0;}
+.textUl01 li img{width:132px; height:132x;box-shadow:1px 1px 10px #414141;border-radius:50%;}
+.textUl01 li:nth-child(1){ position:absolute; top:128px; left:15px;}
+.textUl01 li:nth-child(2){ position:absolute; top:128px; left:158px;}
+.textUl01 li:nth-child(3){ position:absolute; top:286px; left:15px;}
+.textUl01 li:nth-child(4){ position:absolute; top:286px; left:158px;}
+
+/*第八屏动画*/
+.active .pageLine08{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+.active .pageText08{
+	-webkit-animation:bounceInLeft 0.5s 0.5s forwards;
+	-moz-animation:bounceInLeft 0.5s 0.5s forwards;
+	-ms-animation:bounceInLeft 0.5s 0.5s forwards;
+	-o-animation:bounceInLeft 0.5s 0.5s forwards;
+	animation:bounceInLeft 0.5s 0.5s forwards;
+}
+
+
+.active .textUl01 li:nth-child(1){
+	-webkit-animation:animateScaleBig 0.5s 1s forwards;
+	-moz-animation:animateScaleBig 0.5s 1s forwards;
+	-ms-animation:animateScaleBig 0.5s 1s forwards;
+	-o-animation:animateScaleBig 0.5s 1s forwards;
+	animation:animateScaleBig 0.5s 1s forwards;
+}
+.active .textUl01 li:nth-child(2){
+	-webkit-animation:animateScaleBig 0.5s 2.2s forwards;
+	-moz-animation:animateScaleBig 0.5s 2.2s forwards;
+	-ms-animation:animateScaleBig 0.5s 2.2s forwards;
+	-o-animation:animateScaleBig 0.5s 2.2s forwards;
+	animation:animateScaleBig 0.5s 2.2s forwards;
+	
+}
+.active .textUl01 li:nth-child(3){
+	-webkit-animation:animateScaleBig 0.5s 1.8s forwards;
+	-moz-animation:animateScaleBig 0.5s 1.8s forwards;
+	-ms-animation:animateScaleBig 0.5s 1.8s forwards;
+	-o-animation:animateScaleBig 0.5s 1.8s forwards;
+	animation:animateScaleBig 0.5s 1.8s forwards;
+}
+.active .textUl01 li:nth-child(4){
+	-webkit-animation:animateScaleBig 0.5s 1.4s forwards;
+	-moz-animation:animateScaleBig 0.5s 1.4s forwards;
+	-ms-animation:animateScaleBig 0.5s 1.4s forwards;
+	-o-animation:animateScaleBig 0.5s 1.4s forwards;
+	animation:animateScaleBig 0.5s 1.4s forwards;
+}
+
+/*第九屏内容*/
+.pageImg09{ background:url(../images/bg_09.jpg) no-repeat; background-size:100% auto;}
+.pageLine09{ background:url(../images/bgLine08.png) no-repeat; background-size:100% auto; height:0;}
+.pageText09{ position:absolute; top:45px; background:rgba(98,208,138,.9); left:25px; width:220px; opacity:0;}
+.pageText09 h2.mewhyNine{ font-size:20px; color:#fff; margin-left:10px; margin-top:20px; margin-bottom:10px;}
+.pageText09 p.mewhy_p_Nine{ margin-top:3px; font-size:0.875em; color:#fff; margin-left:10px; margin-right:10px; padding-bottom:20px;}
+
+
+
+/*第九屏动画*/
+.active .pageLine09{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+.active .pageText09{
+	-webkit-animation:animateScaleBig 0.5s 0.5s forwards;
+	-moz-animation:animateScaleBig 0.5s 0.5s forwards;
+	-ms-animation:animateScaleBig 0.5s 0.5s forwards;
+	-o-animation:animateScaleBig 0.5s 0.5s forwards;
+	animation:animateScaleBig 0.5s 0.5s forwards;
+}
+/*第十屏内容*/
+.pageImg10{ background:url(../images/bg_10.jpg) no-repeat; background-size:100% auto;}
+.pageLine10{ background:url(../images/bgLine08.png) no-repeat; background-size:100% auto; height:0;}
+.pageText10{ position:absolute; top:45px; width:320px; opacity:0;}
+.pageText10 h2.mewhyTen{ font-size:38px; color:#fff; text-align:center; }
+.pageText10 p.mewhy_p_Ten{ margin-top:3px; font-size:0.875em; color:#fff; margin-left:10px; margin-right:10px; padding-bottom:20px;}
+.pageText10_ul{ position:absolute; top:110px;} 
+.pageText10_ul li{  opacity:0; margin-top:10px;}
+.pageText10_ul li a{background:url(../images/textList_bg.png) no-repeat; background-size:100% auto; width:300px;display:inline-block;color:#fff; padding:30px 10px 20px 10px; font-size:0.875em; }
+.pageText10_ul li a span{ margin:0px 15px;}
+.pageText10_ul li:nth-child(1){ left:0px;}
+.pageText10_ul li:nth-child(2){ left:0px;}
+.pageText10_ul li:nth-child(3){  left:0px;}
+
+
+/*第十屏动画*/
+.active .pageLine10{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+.active .pageText10{
+	-webkit-animation:bounceInLeft 0.5s 0.5s forwards;
+	-moz-animation:bounceInLeft 0.5s 0.5s forwards;
+	-ms-animation:bounceInLeft 0.5s 0.5s forwards;
+	-o-animation:bounceInLeft 0.5s 0.5s forwards;
+	animation:bounceInLeft 0.5s 0.5s forwards;
+}
+.active .pageText10_ul li:nth-child(1){
+	-webkit-animation:animateScaleBig 0.5s 1s forwards;
+	-moz-animation:animateScaleBig 0.5s 1s forwards;
+	-ms-animation:animateScaleBig 0.5s 1s forwards;
+	-o-animation:animateScaleBig 0.5s 1s forwards;
+	animation:animateScaleBig 0.5s 1s forwards;
+}
+.active .pageText10_ul li:nth-child(2){
+	-webkit-animation:animateScaleBig 0.5s 1.4s forwards;
+	-moz-animation:animateScaleBig 0.5s 1.4s forwards;
+	-ms-animation:animateScaleBig 0.5s 1.4s forwards;
+	-o-animation:animateScaleBig 0.5s 1.4s forwards;
+	animation:animateScaleBig 0.5s 1.4s forwards;
+}
+.active .pageText10_ul li:nth-child(3){
+	-webkit-animation:animateScaleBig 0.5s 1.8s forwards;
+	-moz-animation:animateScaleBig 0.5s 1.8s forwards;
+	-ms-animation:animateScaleBig 0.5s 1.8s forwards;
+	-o-animation:animateScaleBig 0.5s 1.8s forwards;
+	animation:animateScaleBig 0.5s 1.8s forwards;
+}
+
+/*第十一屏内容*/
+.pageImg11{ background:url(../images/bg_11.jpg) no-repeat; background-size:100% auto;}
+.pageLine11{ background:url(../images/bgLine08.png) no-repeat; background-size:100% auto; height:0;}
+.pageText11{ position:absolute; top:45px; background:rgba(98,208,138,.9); right:24px; left:24px; width:272px; opacity:0;}
+.pageText11 h2.mewhyeleven{font-size:20px; color:#fff; margin-left:20px; margin-top:35px; margin-bottom:20px;}
+.pageText11 p.mewhy_p_eleven{font-size:0.875em; color:#fff; margin-left:20px; margin-right:20px; padding-bottom:10px;}
+.pageText11 p.pb30{padding-bottom:30px;}
+
+
+
+/*第十一屏动画*/
+.active .pageLine11{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+.active .pageText11{
+	-webkit-animation:animateScaleBig 0.5s 0.5s forwards;
+	-moz-animation:animateScaleBig 0.5s 0.5s forwards;
+	-ms-animation:animateScaleBig 0.5s 0.5s forwards;
+	-o-animation:animateScaleBig 0.5s 0.5s forwards;
+	animation:animateScaleBig 0.5s 0.5s forwards;
+}
+/*第十二屏内容*/
+.pageImg12{ background:url(../images/bg_12.jpg) no-repeat; background-size:100% auto;}
+.pageLine12{ background:url(../images/bgLine08.png) no-repeat; background-size:100% auto; height:0;}
+.pageText12{ position:absolute; top:60px; width:320px; opacity:0;}
+.pageText12 h2.mewhyTwewu{ font-size:35px; color:#fff; text-align:center;}
+.pageText12 p.mewhy_p_eleven{ font-size:0.875em; color:#fff; margin-left:20px; margin-right:20px; padding-bottom:10px;}
+
+.TwewuList{position:absolute; top:175px; left:65px;}
+.TwewuList a{width:186px; height:186px; display:inline-block; background:#fef4d8;  border-radius:50%; border:5px solid rgba(254,199,41,.3); font-size:30px; color:#ffc03a; line-height:186px; text-align:center;}
+.flow01{background:url(../images/yuan2.png) no-repeat; background-size:100% auto;  width:59px; height:59px;position:absolute; left:35px; top:340px; opacity: 0;}
+.flow02{background:url(../images/yuan3.png) no-repeat; background-size:100% auto;  width:30px; height:30px;position:absolute; right:35px; top:380px; opacity: 0;}
+.flow03{background:url(../images/yuan1.png) no-repeat; background-size:100% auto;  width:17px; height:17px;position:absolute; left:20px; top:205px; opacity: 0;}
+.flow04{background:url(../images/yuan4.png) no-repeat; background-size:100% auto;  width:74px; height:87px;position:absolute; right:0px; top:140px; opacity: 0;}
+
+
+
+/*第十二屏动画*/
+.active .pageLine12{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+.active .pageText12{
+	-webkit-animation:bounceInLeft 0.5s 0.5s forwards;
+	-moz-animation:bounceInLeft 0.5s 0.5s forwards;
+	-ms-animation:bounceInLeft 0.5s 0.5s forwards;
+	-o-animation:bounceInLeft 0.5s 0.5s forwards;
+	animation:bounceInLeft 0.5s 0.5s forwards;
+}
+.active .TwewuList{-webkit-animation: pulse infinite alternate linear 0.5s;
+  -moz-animation: pulse infinite alternate linear 0.5s;
+  -o-animation: pulse infinite alternate linear 0.5s;
+  -ms-animation: pulse infinite alternate linear 0.5s;
+  animation: pulse infinite alternate linear 0.5s;}
+.active .flow01{
+	-webkit-animation:enterDownBounce 3s 0.3s linear forwards;
+	-moz-animation:enterDownBounce 3s 0.3s linear forwards;
+	-ms-animation:enterDownBounce 3s 0.3s linear forwards;
+	-o-animation:enterDownBounce 3s 0.3s linear forwards;
+	animation:enterDownBounce 3s 0.3s linear forwards;
+}
+.active .flow02{
+	-webkit-animation:enterDownBounce 4s 1s linear forwards;
+	-moz-animation:enterDownBounce 4s 1s linear forwards;
+	-ms-animation:enterDownBounce 4s 1s linear forwards;
+	-o-animation:enterDownBounce 4s 1s linear forwards;
+	animation:enterDownBounce 4s 1s linear forwards;
+}
+.active .flow03{
+	-webkit-animation:enterDownBounce 6s 2s linear forwards;
+	-moz-animation:enterDownBounce 6s 2s linear forwards;
+	-ms-animation:enterDownBounce 6s 2s linear forwards;
+	-o-animation:enterDownBounce 6s 2s linear forwards;
+	animation:enterDownBounce 6s 2s linear forwards;
+}
+.active .flow04{
+	-webkit-animation:enterDownBounce 8s 3s linear forwards;
+	-moz-animation:enterDownBounce 8s 3s linear forwards;
+	-ms-animation:enterDownBounce 8s 3s linear forwards;
+	-o-animation:enterDownBounce 8s 3s linear forwards;
+	animation:enterDownBounce 8s 3s linear forwards;
+}
+/*第十三屏内容*/
+.pageImg13{ background:#69d1a0; }
+.pageLine13{ background:url(../images/bgLine08.png) no-repeat; background-size:100% auto; height:0;}
+.pageText13{ position:absolute;top:35px; opacity:0; width:320px; }
+.pageText13 h2.mewhythrety{ font-size:38px; color:#fff;text-align:center;}
+
+.peopleAbout{}
+.peopleUl{}
+.peopleUl li{ position:absolute; width:279px; height:57px; background:url(../images/last.png) no-repeat;background-size:100% auto; padding-top:5px;opacity:0;}
+.peopleUl li span{ float:left; opacity:0;}
+.peopleUl li span.peopleTxt{ display:inline-block; width:150px; height:25px;font-size:0.875em;color:#fff; margin-top:15px; padding-left:15px;}
+.peopleUl li span.peoplePic{ display:inline-block; width:46px; height:46px; margin-left:10px;}
+.peopleUl li:nth-child(1){ left:20px; top:100px; right:20px;}
+.peopleUl li:nth-child(2){ left:20px; top:170px; right:20px;}
+.peopleUl li:nth-child(3){ left:20px; top:240px; right:20px;}
+.peopleUl li:nth-child(4){ left:20px; top:310px; right:20px;}
+.peopleUl li:nth-child(5){ left:20px; top:380px; right:20px;}
+.peopleUl li:nth-child(1) span.peoplePic{ background:url(../images/tel_bg.png) no-repeat; background-size:100% auto;}
+.peopleUl li:nth-child(2) span.peoplePic{ background:url(../images/weixin_bg.png) no-repeat; background-size:100% auto;}
+.peopleUl li:nth-child(3) span.peoplePic{ background:url(../images/email_bg.png) no-repeat; background-size:100% auto;}
+.peopleUl li:nth-child(4) span.peoplePic{ background:url(../images/qq_bg.png) no-repeat; background-size:100% auto;}
+.peopleUl li:nth-child(5) span.peoplePic{ background:url(../images/add_bg.png) no-repeat; background-size:100% auto;}
+/*第十三屏动画*/
+.active .pageLine12{
+	-webkit-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-moz-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-ms-animation:transitionHeight 0.5s 0.4s linear forwards;
+	-o-animation:transitionHeight 0.5s 0.4s linear forwards;
+	animation:transitionHeight 0.5s 0.4s linear forwards;
+}
+.active .pageText13{
+	-webkit-animation:bounceInLeft 0.5s 0.5s forwards;
+	-moz-animation:bounceInLeft 0.5s 0.5s forwards;
+	-ms-animation:bounceInLeft 0.5s 0.5s forwards;
+	-o-animation:bounceInLeft 0.5s 0.5s forwards;
+	animation:bounceInLeft 0.5s 0.5s forwards;
+}
+.active .peopleUl li:nth-child(1){
+	-webkit-animation:bounceIn 0.5s 0.5s forwards;
+	-moz-animation:bounceIn 0.5s 0.5s forwards;
+	-ms-animation:bounceIn 0.5s 0.5s forwards;
+	-o-animation:bounceIn 0.5s 0.5s forwards;
+	animation:bounceIn 0.5s 0.5s forwards;
+}
+.active .peopleUl li:nth-child(1) span.peoplePic{
+	-webkit-animation:bounceIn 0.5s 1s forwards;
+	-moz-animation:bounceIn 0.5s 1s forwards;
+	-ms-animation:bounceIn 0.5s 1s forwards;
+	-o-animation:bounceIn 0.5s 1s forwards;
+	animation:bounceIn 0.5s 1s forwards;
+}
+.active .peopleUl li:nth-child(1) span.peopleTxt{
+	-webkit-animation:slideInLeft 0.5s 1.2s forwards;
+	-moz-animation:slideInLeft 0.5s 1.2s forwards;
+	-ms-animation:slideInLeft 0.5s 1.2s forwards;
+	-o-animation:slideInLeft 0.5s 1.2s forwards;
+	animation:slideInLeft 0.5s 1.2s forwards;
+}
+.active .peopleUl li:nth-child(2){
+	-webkit-animation:bounceIn 0.5s 1.2s forwards;
+	-moz-animation:bounceIn 0.5s 1.2s forwards;
+	-ms-animation:bounceIn 0.5s 1.2s forwards;
+	-o-animation:bounceIn 0.5s 1.2s forwards;
+	animation:bounceIn 0.5s 1.2s forwards;
+}
+
+.active .peopleUl li:nth-child(2) span.peoplePic{
+	-webkit-animation:bounceIn 0.5s 1.3s forwards;
+	-moz-animation:bounceIn 0.5s 1.3s forwards;
+	-ms-animation:bounceIn 0.5s 1.3s forwards;
+	-o-animation:bounceIn 0.5s 1.3s forwards;
+	animation:bounceIn 0.5s 1.3s forwards;
+}
+.active .peopleUl li:nth-child(2) span.peopleTxt{
+	-webkit-animation:slideInLeft 0.5s 1.5s forwards;
+	-moz-animation:slideInLeft 0.5s 1.5s forwards;
+	-ms-animation:slideInLeft 0.5s 1.5s forwards;
+	-o-animation:slideInLeft 0.5s 1.5s forwards;
+	animation:slideInLeft 0.5s 1.5s forwards;
+}
+
+.active .peopleUl li:nth-child(3){
+	-webkit-animation:bounceIn 0.5s 1.5s forwards;
+	-moz-animation:bounceIn 0.5s 1.5s forwards;
+	-ms-animation:bounceIn 0.5s 1.5s forwards;
+	-o-animation:bounceIn 0.5s 1.5s forwards;
+	animation:bounceIn 0.5s 1.5s forwards;
+}
+.active .peopleUl li:nth-child(3) span.peoplePic{
+	-webkit-animation:bounceIn 0.5s 1.6s forwards;
+	-moz-animation:bounceIn 0.5s 1.6s forwards;
+	-ms-animation:bounceIn 0.5s 1.6s forwards;
+	-o-animation:bounceIn 0.5s 1.6s forwards;
+	animation:bounceIn 0.5s 1.6s forwards;
+}
+.active .peopleUl li:nth-child(3) span.peopleTxt{
+	-webkit-animation:slideInLeft 0.5s 1.8s forwards;
+	-moz-animation:slideInLeft 0.5s 1.8s forwards;
+	-ms-animation:slideInLeft 0.5s 1.8s forwards;
+	-o-animation:slideInLeft 0.5s 1.8s forwards;
+	animation:slideInLeft 0.5s 1.8s forwards;
+}
+
+.active .peopleUl li:nth-child(4){
+	-webkit-animation:bounceIn 0.5s 1.5s forwards;
+	-moz-animation:bounceIn 0.5s 1.8s forwards;
+	-ms-animation:bounceIn 0.5s 1.8s forwards;
+	-o-animation:bounceIn 0.5s 1.8s forwards;
+	animation:bounceIn 0.5s 1.8s forwards;
+}
+.active .peopleUl li:nth-child(4) span.peoplePic{
+	-webkit-animation:bounceIn 0.5s 1.9s forwards;
+	-moz-animation:bounceIn 0.5s 1.9s forwards;
+	-ms-animation:bounceIn 0.5s 1.9s forwards;
+	-o-animation:bounceIn 0.5s 1.9s forwards;
+	animation:bounceIn 0.5s 1.9s forwards;
+}
+.active .peopleUl li:nth-child(4) span.peopleTxt{
+	-webkit-animation:slideInLeft 0.5s 2.1s forwards;
+	-moz-animation:slideInLeft 0.5s 2.1s forwards;
+	-ms-animation:slideInLeft 0.5s 2.1s forwards;
+	-o-animation:slideInLeft 0.5s 2.1s forwards;
+	animation:slideInLeft 0.5s 2.1s forwards;
+}
+
+.active .peopleUl li:nth-child(5){
+	-webkit-animation:bounceIn 0.5s 2.1s forwards;
+	-moz-animation:bounceIn 0.5s 2.1s forwards;
+	-ms-animation:bounceIn 0.5s 2.1s forwards;
+	-o-animation:bounceIn 0.5s 2.1s forwards;
+	animation:bounceIn 0.5s 2.1s forwards;
+}
+.active .peopleUl li:nth-child(5) span.peoplePic{
+	-webkit-animation:bounceIn 0.5s 2.1s forwards;
+	-moz-animation:bounceIn 0.5s 2.1s forwards;
+	-ms-animation:bounceIn 0.5s 2.1s forwards;
+	-o-animation:bounceIn 0.5s 2.1s forwards;
+	animation:bounceIn 0.5s 2.1s forwards;
+}
+.active .peopleUl li:nth-child(5) span.peopleTxt{
+	-webkit-animation:slideInLeft 0.5s 2.3s forwards;
+	-moz-animation:slideInLeft 0.5s 2.3s forwards;
+	-ms-animation:slideInLeft 0.5s 2.3s forwards;
+	-o-animation:slideInLeft 0.5s 2.3s forwards;
+	animation:slideInLeft 0.5s 2.3s forwards;
+}
