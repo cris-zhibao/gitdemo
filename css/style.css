@@ -851,3 +851,15 @@ animation:errowb 0.7s infinite;
 	width:280px;
 	height:auto;
 }
+
+.playBtn{
+	position: absolute;
+	top:200px;
+	left:100px;
+	width:100px; 
+	height:100px;
+	margin: -50px 0 0 -20px;
+	background:url(../images/1.png) no-repeat;
+	background-size: 100%;
+	z-index: 100;
+}

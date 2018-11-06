@@ -136,11 +136,12 @@
 		<div class="pagecontent">
 			
 			<div class="pageText07">
-				<p class="mewhy_p_seven">再来一张帅照！</p>
+				<p class="mewhy_p_seven">徐文杰27岁生日的视频资料！</p>
 			</div>
 			<div class="textList">
 				<ul class="textUl">
 					<li class="textLi">
+						<span class="playBtn"></span>
 						<video preload='auto' id='my-video' autoplay  src='images/11.mp4' ><p> 不支持video</p> </video>
 					</li>
 				</ul>
@@ -203,6 +204,19 @@ function fnScale(){
 		$('.no4_bg1').css({ 'margin-left':-(320*ws/n-320)/2+'px'});
 	});
 }
+
+
+let vBox=document.getElementById('my-video');
+$('.playBtn').click(function(){
+	vBox.play();
+	$('.playBtn').hide();
+	console.log(123);
+});
+
+vBox.onended=function(){
+	$('.playBtn').show();
+};
+
 
 
 $('.addBtn').click(function(){
